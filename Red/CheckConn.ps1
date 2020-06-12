@@ -1,10 +1,11 @@
-﻿$servidores = Import-Csv -Path "C:\Users\aaparicio\Documents\Cursos\ITE60\EOI_Barna\Secuencia\Semana6\scripts\servidores.csv" -Delimiter ","
-
+﻿$servidores = Import-Csv -Path .\Red\servidores.csv  -Delimiter ","
+$resultado = "`nListado de máquinas `n"
+$resultado += "--------------------------- `n"
 foreach ($maquina in $servidores) {
     if (Test-Connection $maquina.ip -Count 1 -Quiet) {
-	    Write-Host "Máquina "$maquina.nombre"accesible!"
+	    $resultado += "Máquina "+$maquina.nombre+" accesible! `n"  
     } else {
-	    Write-Host "Máquina "$maquina.nombre" ERROR!"
+	    $resultado += "Máquina "+$maquina.nombre +" ERROR! `n"
     }
 }
-
+$resultado 
