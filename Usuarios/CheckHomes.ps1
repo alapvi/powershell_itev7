@@ -1,9 +1,9 @@
 ﻿#Comprobación de carpetas personales de usuarios
-$usuarios = Get-LocalUser | Where-Object Name
+$usuarios = Get-LocalUser | Select-Object Name
 foreach ($i in $usuarios) {
-    If ( Test-Path "C:\Users\$i" ) {
-        Write-Host "Usuario $i Tiene home"
+    If ( Test-Path "C:\Users\$($i.Name)" ) {
+        Write-Host "Usuario $($i.Name) Tiene home"
     } else {
-        Write-Host "Usuario $i NO tiene home"
+        Write-Host "Usuario $($i.Name) NO tiene home"
     }
 } 
