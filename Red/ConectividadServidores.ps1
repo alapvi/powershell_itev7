@@ -2,7 +2,7 @@
 Clear-Host
 Write-Host " ----- Conectividad -----"
 #Importamos los datos
-$datos= Import-Csv -Path servidores.csv
+$datos= Import-Csv -Path .\Red\servidores.csv -Delimiter ","
 #Recorremos los datos
 foreach ($i in $datos) {
     $respuesta=Test-Connection $i.ip -Count 1 -quiet
