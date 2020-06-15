@@ -1,4 +1,9 @@
-﻿$servidores = Import-Csv -Path .\Sistema\servidores.csv -Delimiter ","
+﻿<#
+    Comprobar servicios en ejecución y enviar notificación por email
+#>
+
+#Obtenemos del fichero los servidores, los servicios y sus puertos
+$servidores = Import-Csv -Path .\Sistema\servidores.csv -Delimiter ","
 $hayerror = $false
 $errormensaje = ""
 foreach ($i in $servidores) {
