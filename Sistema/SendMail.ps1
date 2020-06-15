@@ -6,6 +6,8 @@
 $servidores = Import-Csv -Path .\Sistema\servidores.csv -Delimiter ","
 $hayerror = $false
 $errormensaje = ""
+
+#Comprobamos por cada servidor si el servicio está o no en ejecución
 foreach ($i in $servidores) {
     $port = $i.puerto
     $servicio = $i.servicio
@@ -21,7 +23,7 @@ foreach ($i in $servidores) {
     }
 }
 
-
+#Comprobamos si hay errores en servicios y enviamos el correo
 if ($hayerror -eq $true) {
     $email = "ciscoiteservice@gmail.com"
     $smtpServer = "smtp.gmail.com"
