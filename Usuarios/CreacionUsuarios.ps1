@@ -1,4 +1,6 @@
-﻿#Creación de usuarios de forma masiva
+﻿<#
+    Creación de usuarios de forma masiva a partir de un fichero .csv
+#>
 Clear-Host
 Write-Host "-----Creación de usuarios----" 
 $usuarios= Import-Csv -Path usuarios.csv

@@ -1,4 +1,7 @@
-﻿#Script para crear usuario
+﻿<#
+    Script para crear un usuario. Comprueba que el usuario no exista.
+    Permite añadirlo al grupo de Administradores o de Usuarios     
+#>
 $user = Read-Host "Introduce Usuario"
 $res = ((Get-LocalUser).Name | Select-String -Pattern $user).Count 
 if ($res -eq 1) {
