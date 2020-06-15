@@ -30,8 +30,8 @@ if ($hayerror -eq $true) {
     $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecurePassword)
     $pass = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
 
-    $msg = new-object Net.Mail.MailMessage
-    $smtp = new-object Net.Mail.SmtpClient($smtpServer)
+    $msg = New-Object Net.Mail.MailMessage
+    $smtp = New-Object Net.Mail.SmtpClient($smtpServer)
     $smtp.EnableSsl = $true
     $msg.From = "ciscoiteservice@gmail.com" 
     $msg.To.Add("$email")
